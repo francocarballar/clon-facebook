@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import './Main.css'
+import { WhatAreYouThiking } from '../WhatAreYouThiking'
 import { Publication } from '../Publication'
 
 function Main () {
   return (
     <main
       id='main'
-      className='d-flex flex-column justify-content-start align-items-center p-5'
+      className='d-flex flex-column justify-content-start align-items-center py-5'
     >
+      <WhatAreYouThiking />
       <Publication
         image='https://source.unsplash.com/random/1'
         name='Elon Musk'

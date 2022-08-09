@@ -6,6 +6,7 @@
     height: 40px;
     background-color: var(--bs-tertiary);
     border-radius: 50%;
+    cursor: pointer;
 }
 
 #search i {

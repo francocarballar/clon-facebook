@@ -1,5 +1,12 @@
-.figure-profile-picture {
+.figure-profile-picture--comment {
     position: relative;
+}
+
+.profile-picture--comment {
+    margin-left: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 
 #online {
@@ -21,7 +28,8 @@
 }
 
 .container-comment {
-    width: 400px;
+    width: 100%;
+    max-width: 450px;
     background-color: var(--bs-tertiary);
     border-radius: 25px;
 }
@@ -42,4 +50,16 @@
 
 .container-icon-comment:hover {
     background-color: var(--bs-secondary);
+}
+
+@media(min-width: 600px) {
+    .footer-div--comments {
+        width: 90%;
+    }
+
+    .profile-picture--comment {
+        margin-left: 0;
+        width: 40px;
+        height: 40px;
+    }
 }

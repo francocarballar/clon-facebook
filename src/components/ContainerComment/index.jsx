@@ -9,13 +9,13 @@ function ContainerComment () {
   return (
     <>
       <hr />
-      <div className='d-flex flex-row justify-content-between align-items-center'>
-        <figure className='m-0 figure-profile-picture'>
+      <div className='d-flex flex-row justify-content-between align-items-center footer-div--comments'>
+        <figure className='m-0 figure-profile-picture--comment'>
           <img
             loading='lazy'
             src='https://raw.githubusercontent.com/francocarballar/clon-de-google/master/assets/img/account.jpg'
             alt='Foto de perfil de Franco Carballar'
-            className='profile-picture'
+            className='profile-picture--comment'
           />
           <label id='online'>
             <p width='8px' height='8px'></p>

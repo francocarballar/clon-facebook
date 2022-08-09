@@ -59,7 +59,7 @@ function Publication ({ name, description, image }) {
             >
               {like && <IconLike />}
               {likeActive && <IconLikeActive />}
-              <p className='fs-4 mx-3 my-0' style={stateStyleTextLike}>
+              <p className='mx-3 my-0 text-actions' style={stateStyleTextLike}>
                 Me gusta
               </p>
             </div>
@@ -68,11 +68,11 @@ function Publication ({ name, description, image }) {
               onClick={() => setComment(true)}
             >
               <IconComment />
-              <p className='fs-4 mx-3 my-0'>Comentar</p>
+              <p className='mx-3 my-0 text-actions'>Comentar</p>
             </div>
             <div className='d-flex justify-content-center align-items-center container-actions'>
               <IconShare />
-              <p className='fs-4 mx-3 my-0'>Compartir</p>
+              <p className='mx-3 my-0 text-actions'>Compartir</p>
             </div>
           </div>
           {commnet && <ContainerComment />}

@@ -26,15 +26,31 @@
 }
 
 .footer-div--actions {
-    max-width: 400px;
+    max-width: 450px;
 }
 
 .container-actions {
-    padding: 10px 15px;
+    padding: 8px 8px;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .container-actions:hover {
     background-color: var(--bs-tertiary);
+}
+
+.text-actions {
+    font-size: 1.4rem;
+}
+
+@media(min-width: 1024px) {
+    .text-actions {
+        font-size: 1.8rem;
+    }
+}
+
+@media(min-width: 500px) {
+    .container-actions {
+        padding: 10px 15px;
+    }
 }
