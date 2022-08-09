@@ -1,0 +1,11 @@
+.IconLike {
+    background-image:
+        url(https://static.xx.fbcdn.net/rsrc.php/v3/yl/r/MxMjw8bf_0J.png);
+    background-position: 0 -318px;
+    background-size: auto;
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    filter: var(--bs-filter-secondary-icon);
+}

@@ -1,0 +1,6 @@
+#main {
+    gap: 15px;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bs-tertiary);
+}

@@ -1,0 +1,45 @@
+.figure-profile-picture {
+    position: relative;
+}
+
+#online {
+    position: absolute;
+    right: 3px;
+    bottom: 0;
+    padding: 1px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--bs-white);
+    border-radius: 50%;
+}
+
+#online p {
+    width: 8px;
+    height: 8px;
+    background-color: var(--bs-green);
+    border-radius: 50%;
+}
+
+.container-comment {
+    width: 400px;
+    background-color: var(--bs-tertiary);
+    border-radius: 25px;
+}
+
+#comment {
+    border: none;
+    outline: none;
+}
+
+.container-icon-comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.container-icon-comment:hover {
+    background-color: var(--bs-secondary);
+}
