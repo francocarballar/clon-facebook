@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import './Main.css'
 import { WhatAreYouThiking } from '../WhatAreYouThiking'
 import { Publication } from '../Publication'

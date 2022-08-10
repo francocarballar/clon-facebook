@@ -1,0 +1,10 @@
+.IconClock {
+    background-image:
+        url(https://static.xx.fbcdn.net/rsrc.php/v3/yB/r/mlj4wZn6ZfC.png);
+    background-position: center;
+    background-size: auto;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}

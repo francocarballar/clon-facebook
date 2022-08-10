@@ -6,6 +6,7 @@ import { IconLikeActive } from '../Icons/IconLikeActive'
 import { IconComment } from '../Icons/IconComment'
 import { IconShare } from '../Icons/IconShare'
 import { ContainerComment } from '../ContainerComment'
+import { PublicationActions } from '../PublicationActions'
 
 function Publication ({ name, description, image }) {
   const alt = `Publicación creada por ${name}`
@@ -13,6 +14,7 @@ function Publication ({ name, description, image }) {
   const [likeActive, setLikeActive] = useState(false)
   const [stateStyleTextLike, setStyleTextLike] = useState({})
   const [commnet, setComment] = useState(false)
+  const [statePublicationActions, setPublicationActions] = useState(false)
   const styleTextLike = {
     color: 'var(--bs-primary)'
   }
@@ -40,8 +42,12 @@ function Publication ({ name, description, image }) {
             </figure>
             <h4 className='mx-3 fs-2'>{name}</h4>
           </div>
-          <div className='d-flex justify-content-center align-items-center container-publication-actions'>
+          <div
+            className='d-flex justify-content-center align-items-center container-publication-actions position-relative'
+            onClick={() => setPublicationActions(!statePublicationActions)}
+          >
             <IconPublicationActions />
+            {statePublicationActions && <PublicationActions />}
           </div>
         </header>
         <section className='d-flex flex-column justify-content-start align-items-center w-100'>

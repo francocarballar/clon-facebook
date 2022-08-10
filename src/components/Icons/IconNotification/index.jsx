@@ -1,0 +1,7 @@
+import './IconNotification.css'
+
+function IconNotification () {
+  return <i data-visualcompletion='css-img' className='IconNotification'></i>
+}
+
+export { IconNotification }
