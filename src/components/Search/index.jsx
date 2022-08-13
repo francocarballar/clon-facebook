@@ -30,7 +30,7 @@ function Search ({ openSearch, setOpenSearch }) {
               className='btn mx-2'
               onClick={() => setOpenSearch(false)}
             >
-              <i class='fa-solid fa-arrow-left'></i>
+              <i class='fa-solid fa-arrow-left' />
             </button>
             <input
               type='text'

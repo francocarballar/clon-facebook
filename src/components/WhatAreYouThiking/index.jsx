@@ -1,5 +1,6 @@
 import React from 'react'
 import './WhatAreYouThiking.css'
+import { ContainerActions } from '../ContainerActions'
 import { IconVideoCamera } from '../Icons/IconVideoCamera'
 import { IconPhoto } from '../Icons/IconPhoto'
 import { IconHappyEmoji } from '../Icons/IconHappyEmoji'
@@ -29,18 +30,15 @@ function WhatAreYouThiking () {
         </div>
       </div>
       <div className='d-flex flex-row mt-3'>
-        <div className='d-flex justify-content-center align-items-center container-actions p-3'>
+        <ContainerActions classContainer='' classP='fs-5' text='Video en vivo'>
           <IconVideoCamera />
-          <p className='mx-3 my-0 fs-5'>Video en vivo</p>
-        </div>
-        <div className='d-flex justify-content-center align-items-center container-actions p-3'>
+        </ContainerActions>
+        <ContainerActions classContainer='' classP='fs-5' text='Foto/Video'>
           <IconPhoto />
-          <p className='mx-3 my-0 fs-5'>Foto/Video</p>
-        </div>
-        <div className='justify-content-center align-items-center container-actions p-3 d-none d-md-flex'>
+        </ContainerActions>
+        <ContainerActions classContainer='d-none d-sm-flex' classP='fs-5' text='Sentimiento/Actividad'>
           <IconHappyEmoji />
-          <p className='mx-3 my-0 fs-5'>Sentimiento/Actividad</p>
-        </div>
+        </ContainerActions>
       </div>
     </section>
   )

@@ -18,7 +18,7 @@ function ContainerComment () {
             className='profile-picture--comment'
           />
           <label id='online'>
-            <p width='8px' height='8px'></p>
+            <p width='8px' height='8px' />
           </label>
         </figure>
         <div className='d-flex justify-content-between mx-3 px-3 py-2 container-comment'>

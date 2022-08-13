@@ -1,7 +1,7 @@
 import './IconCamera.css'
 
 function IconCamera () {
-  return <i data-visualcompletion='css-img' className='IconCamera'></i>
+  return <i data-visualcompletion='css-img' className='IconCamera' />
 }
 
 export { IconCamera }

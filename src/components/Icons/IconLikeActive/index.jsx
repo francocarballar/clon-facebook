@@ -1,7 +1,7 @@
 import './IconLikeActive.css'
 
 function IconLikeActive () {
-  return <i data-visualcompletion='css-img' className='IconLikeActive'></i>
+  return <i data-visualcompletion='css-img' className='IconLikeActive' />
 }
 
 export { IconLikeActive }

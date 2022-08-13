@@ -1,0 +1,41 @@
+.container-stories {
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.container-stories .nav-link {
+    margin: 0 5px;
+    width: 100px;
+}
+
+.container-stories .container-stories-img {
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+
+.container-stories .container-stories-img figure {
+    width: 112.5px;
+    height: 200px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.container-stories .container-stories-img figure img {
+    border-radius: 15px;
+}
+
+.container-stories .container-stories-img figure div {
+    top: 10px;
+    left: 10px;
+    padding: 4px;
+    background-color: var(--bs-primary);
+    border-radius: 50%;
+}
+
+.container-stories .profile-picture {
+    width: 32px;
+    height: 32px;
+    z-index: 2000;
+    border-radius: 50%;
+}

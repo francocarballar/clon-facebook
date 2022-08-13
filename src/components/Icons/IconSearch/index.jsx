@@ -3,7 +3,7 @@ import './IconSearch.css'
 function IconSearch ({ setOpenSearch }) {
   return (
     <div href='#uno' id='search' onClick={() => setOpenSearch(true)}>
-      <i className='fa-solid fa-magnifying-glass'></i>
+      <i className='fa-solid fa-magnifying-glass' />
       <input
         type='text'
         name='search'

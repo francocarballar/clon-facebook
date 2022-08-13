@@ -1,4 +1,5 @@
 import './Main.css'
+import { Stories } from '../Stories'
 import { WhatAreYouThiking } from '../WhatAreYouThiking'
 import { Publication } from '../Publication'
 
@@ -8,6 +9,7 @@ function Main () {
       id='main'
       className='d-flex flex-column justify-content-start align-items-center py-5'
     >
+      <Stories />
       <WhatAreYouThiking />
       <Publication
         image='https://source.unsplash.com/random/1'

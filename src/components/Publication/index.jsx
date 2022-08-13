@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Publication.css'
+import { ContainerActions } from '../ContainerActions'
 import { IconPublicationActions } from '../Icons/IconPublicationActions'
 import { IconLike } from '../Icons/IconLike'
 import { IconLikeActive } from '../Icons/IconLikeActive'
@@ -59,27 +60,31 @@ function Publication ({ name, description, image }) {
         <hr />
         <footer className='d-flex flex-column justify-content-between align-items-center pb-4 w-100'>
           <div className='d-flex flex-row footer-div--actions'>
-            <div
-              className='d-flex justify-content-center align-items-center container-actions'
+            <ContainerActions
+              classContainer=''
+              classP='text-actions'
+              styleP={stateStyleTextLike}
+              text='Me gusta'
               onClick={clickLike}
             >
               {like && <IconLike />}
               {likeActive && <IconLikeActive />}
-              <p className='mx-3 my-0 text-actions' style={stateStyleTextLike}>
-                Me gusta
-              </p>
-            </div>
-            <div
-              className='d-flex justify-content-center align-items-center container-actions'
+            </ContainerActions>
+            <ContainerActions
+              classContainer=''
+              classP='text-actions'
+              text='Comentar'
               onClick={() => setComment(true)}
             >
               <IconComment />
-              <p className='mx-3 my-0 text-actions'>Comentar</p>
-            </div>
-            <div className='d-flex justify-content-center align-items-center container-actions'>
+            </ContainerActions>
+            <ContainerActions
+              classContainer=''
+              classP='text-actions'
+              text='Compartir'
+            >
               <IconShare />
-              <p className='mx-3 my-0 text-actions'>Compartir</p>
-            </div>
+            </ContainerActions>
           </div>
           {commnet && <ContainerComment />}
         </footer>

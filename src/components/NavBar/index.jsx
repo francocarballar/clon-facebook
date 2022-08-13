@@ -21,7 +21,7 @@ function NavBar ({ setOpenSearch }) {
           </Navbar.Brand>
           <IconSearch setOpenSearch={setOpenSearch} />
         </div>
-        <div className='d-flex justify-content-end w-100 h-100'>
+        <div className='d-flex justify-content-end align-items-center w-100 h-100'>
           <Nav className='d-none d-md-flex justify-content-between w-100 pe-4 mx-sm-0 ms-lg-auto navbar-nav-center'>
             <Nav.Link href='#dos' className='icons-navbar active'>
               <IconHouse />
@@ -41,22 +41,22 @@ function NavBar ({ setOpenSearch }) {
           </Nav>
           <Nav className='justify-content-between pe-4'>
             <Nav.Link href='#dos' id='menu' className='d-xl-none'>
-              <i className='fa-solid fa-bars'></i>
+              <i className='fa-solid fa-bars' />
             </Nav.Link>
             <Nav.Link href='#tres' className='d-xl-none'>
-              <i className='fa-solid fa-plus'></i>
+              <i className='fa-solid fa-plus' />
             </Nav.Link>
             <Nav.Link href='#siete' className='d-none d-xl-flex'>
               <IconMenu />
             </Nav.Link>
             <Nav.Link href='#cuatro'>
-              <i className='fa-brands fa-facebook-messenger'></i>
+              <i className='fa-brands fa-facebook-messenger' />
             </Nav.Link>
             <Nav.Link href='#cinco'>
-              <i className='fa-solid fa-bell'></i>
+              <i className='fa-solid fa-bell' />
             </Nav.Link>
             <Nav.Link href='#seis'>
-              <i className='fa-solid fa-caret-down'></i>
+              <i className='fa-solid fa-caret-down' />
             </Nav.Link>
           </Nav>
         </div>
