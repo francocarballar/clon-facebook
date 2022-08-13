@@ -30,13 +30,13 @@ function WhatAreYouThiking () {
         </div>
       </div>
       <div className='d-flex flex-row mt-3'>
-        <ContainerActions classContainer='' classP='fs-5' text='Video en vivo'>
+        <ContainerActions classContainer='' classP='fs-5 fw-semibold' text='Video en vivo'>
           <IconVideoCamera />
         </ContainerActions>
-        <ContainerActions classContainer='' classP='fs-5' text='Foto/Video'>
+        <ContainerActions classContainer='' classP='fs-5 fw-semibold' text='Foto/Video'>
           <IconPhoto />
         </ContainerActions>
-        <ContainerActions classContainer='d-none d-sm-flex' classP='fs-5' text='Sentimiento/Actividad'>
+        <ContainerActions classContainer='d-none d-sm-flex' classP='fs-5 fw-semibold' text='Sentimiento/Actividad'>
           <IconHappyEmoji />
         </ContainerActions>
       </div>

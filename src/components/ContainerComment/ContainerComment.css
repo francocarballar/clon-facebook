@@ -9,7 +9,7 @@
     border-radius: 50%;
 }
 
-#online {
+.online {
     position: absolute;
     right: 3px;
     bottom: 0;
@@ -20,7 +20,7 @@
     border-radius: 50%;
 }
 
-#online p {
+.online p {
     width: 8px;
     height: 8px;
     background-color: var(--bs-green);

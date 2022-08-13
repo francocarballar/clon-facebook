@@ -3,6 +3,7 @@ import './App.css'
 import { NavBar } from '../NavBar'
 import { Search } from '../Search'
 import { Main } from '../Main'
+import { Contacts } from '../Contacts'
 
 function App () {
   const [openSearch, setOpenSearch] = useState(false)
@@ -10,7 +11,10 @@ function App () {
     <>
       <NavBar setOpenSearch={setOpenSearch} />
       <Search openSearch={openSearch} setOpenSearch={setOpenSearch} />
-      <Main />
+      <div className='d-flex justify-content-between align-items-start'>
+        <Main />
+        <Contacts />
+      </div>
     </>
   )
 }

@@ -17,7 +17,7 @@ function ContainerComment () {
             alt='Foto de perfil de Franco Carballar'
             className='profile-picture--comment'
           />
-          <label id='online'>
+          <label className='online'>
             <p width='8px' height='8px' />
           </label>
         </figure>

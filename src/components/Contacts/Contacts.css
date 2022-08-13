@@ -1,0 +1,41 @@
+.container-contacts {
+    min-width: 300px;
+    max-width: 300px;
+    max-height: 90vh;
+    overflow-y: scroll;
+}
+
+.container-contacts::-webkit-scrollbar {
+    width: 10px;
+    display: block;
+}
+
+.container-contacts::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border-radius: 5px;
+}
+
+.container-contacts::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+.container-contacts h2 {
+    color: var(--bs-gray);
+}
+
+.container-contacts i, .container-contacts svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    color: var(--bs-gray);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.container-contacts i:hover, .container-contacts svg:hover {
+    background-color: var(--bs-secondary);
+}

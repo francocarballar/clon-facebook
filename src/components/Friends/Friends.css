@@ -1,0 +1,13 @@
+.container-friends {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.container-friends:hover {
+    background-color: var(--bs-secondary);
+}
+
+.profile-picture--contact {
+    width: 30px;
+    height: 30px;
+}
