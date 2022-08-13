@@ -13,7 +13,7 @@ import { IconMenu } from '../Icons/IconMenu'
 
 function NavBar ({ setOpenSearch }) {
   return (
-    <header className='px-2 sticky-top w-100 header'>
+    <header className='px-2 position-fixed top-0 w-100 header'>
       <Navbar className='d-flex justify-content-between'>
         <div className='d-flex justify-content-center align-items-center'>
           <Navbar.Brand href='#home' className='d-inline mx-3'>

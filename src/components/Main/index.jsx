@@ -7,7 +7,7 @@ function Main () {
   return (
     <main
       id='main'
-      className='d-flex flex-column justify-content-start align-items-center py-5'
+      className='d-flex flex-column justify-content-start align-items-center py-5 position-absolute'
     >
       <Stories />
       <WhatAreYouThiking />

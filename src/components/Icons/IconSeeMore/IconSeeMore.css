@@ -1,0 +1,10 @@
+.icon-seemore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    background-color: var(--bs-secondary);
+    border-radius: 50%;
+}

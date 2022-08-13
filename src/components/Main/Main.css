@@ -4,3 +4,17 @@
     min-height: 100vh;
     background-color: var(--bs-tertiary);
 }
+
+@media(min-width: 992px) {
+    #main {
+        left: 0;
+        width: calc(100% - 300px);
+    }
+}
+
+@media(min-width: 1200px) {
+    #main {
+        left: 300px;
+        width: calc(100% - 600px);
+    }
+}
