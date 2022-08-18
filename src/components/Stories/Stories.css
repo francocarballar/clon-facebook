@@ -8,12 +8,6 @@
     width: 100px;
 }
 
-.container-stories .container-stories-img {
-    overflow-x: scroll;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-}
-
 .container-stories .container-stories-img figure {
     width: 112.5px;
     height: 200px;
