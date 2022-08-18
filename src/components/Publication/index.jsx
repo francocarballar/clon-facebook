@@ -44,7 +44,7 @@ function Publication ({ name, description, image }) {
             <h4 className='mx-3 fs-2'>{name}</h4>
           </div>
           <div
-            className='d-flex justify-content-center align-items-center container-publication-actions position-relative'
+            className='d-flex justify-content-center align-items-center container-publication-actions position-relative top-0'
             onClick={() => setPublicationActions(!statePublicationActions)}
           >
             <IconPublicationActions />
