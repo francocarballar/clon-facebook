@@ -9,7 +9,7 @@ function ContainerComment () {
   return (
     <>
       <hr />
-      <div className='d-flex flex-row justify-content-between align-items-center footer-div--comments'>
+      <div className='d-flex flex-row justify-content-start align-items-center footer-div--comments'>
         <figure className='m-0 figure-profile-picture--comment'>
           <img
             loading='lazy'
@@ -21,7 +21,7 @@ function ContainerComment () {
             <p width='8px' height='8px' />
           </label>
         </figure>
-        <div className='d-flex justify-content-between mx-3 px-3 py-2 container-comment'>
+        <div className='d-flex justify-content-between ms-3 px-3 py-2 container-comment'>
           <label htmlFor='comment'>
             <input
               type='text'
@@ -31,7 +31,7 @@ function ContainerComment () {
               className='fs-4 bg-transparent px-2'
             />
           </label>
-          <div className='d-flex gap-2 px-2'>
+          <div className='d-flex gap-sm-2 px-2'>
             <div className='container-icon-comment'>
               <IconFace />
             </div>
