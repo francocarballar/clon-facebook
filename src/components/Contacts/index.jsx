@@ -11,7 +11,7 @@ function Contacts () {
         <h2>Contactos</h2>
         <div className='d-flex align-items-center gap-4'>
           <IconNewRoom />
-          <i class='fa-solid fa-magnifying-glass'></i>
+          <i className='fa-solid fa-magnifying-glass'></i>
           <IconPublicationActions />
         </div>
       </div>

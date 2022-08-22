@@ -51,6 +51,11 @@
     border-radius: 10px;
 }
 
+.icons-navbar.active:hover {
+    background-color: var(--bs-white);
+    border-radius: 0;
+}
+
 @media(min-width: 1024px) {
     .navbar {
         height: 60px;

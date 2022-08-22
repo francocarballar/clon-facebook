@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -10,8 +10,10 @@ import { IconWatch } from '../Icons/IconWatch'
 import { IconMarketplace } from '../Icons/IconMarketplace'
 import { IconVideoGame } from '../Icons/IconVideoGame'
 import { IconMenu } from '../Icons/IconMenu'
+import { AccountSettings } from '../AccountSettings'
 
 function NavBar ({ setOpenSearch }) {
+  const [accountSettings, setAccountSettings] = useState(false)
   return (
     <header className='px-2 position-fixed top-0 w-100 header'>
       <Navbar className='d-flex justify-content-between'>
@@ -55,8 +57,14 @@ function NavBar ({ setOpenSearch }) {
             <Nav.Link href='#cinco'>
               <i className='fa-solid fa-bell' />
             </Nav.Link>
-            <Nav.Link href='#seis'>
+            <Nav.Link
+              href='#seis'
+              onClick={() => setAccountSettings(!accountSettings)}
+            >
               <i className='fa-solid fa-caret-down' />
+              {accountSettings && (
+                <AccountSettings setAccountSettings={setAccountSettings} />
+              )}
             </Nav.Link>
           </Nav>
         </div>

@@ -1,0 +1,32 @@
+.container_AccountSettings {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 350px;
+    height: auto;
+    background-color: var(--bs-white);
+    border-radius: 10px;
+    box-shadow: 0px 10px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+.container_AccountSettings ul {
+    list-style: none;
+}
+
+.container_AccountSettings li {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.container_AccountSettings li:hover {
+    background-color: var(--bs-tertiary);
+}
+
+.container_AccountSettings p, .container_AccountSettings svg, .container_AccountSettings i {
+    color: var(--bs-black);
+}
+
+.container_AccountSettings .view-profile {
+    color: var(--bs-gray);
+}
