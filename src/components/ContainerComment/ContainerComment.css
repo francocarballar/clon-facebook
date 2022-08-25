@@ -29,7 +29,7 @@
 
 .container-comment {
     width: 82%;
-    max-width: 450px;
+    max-width: 45rem;
     background-color: var(--bs-tertiary);
     border-radius: 25px;
 }
