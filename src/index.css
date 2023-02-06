@@ -1,7 +1,9 @@
 :root {
+  --bs-just-white: #ffffff;
   --bs-primary: #3578e5;
   --bs-secondary: #e4e6eb;
   --bs-tertiary: #f0f2f5;
+  --bs-hover-color: var(--bs-tertiary);
   --nav-link-active: #e7f3ff;
   --bs-filter-secondary-icon: invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%);
   --bs-filter-accent: invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%);
@@ -11,6 +13,21 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  display: block;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: transparent;
 }
 
 html {
@@ -32,10 +49,121 @@ p {
   word-wrap: break-word !important;
 }
 
+html.dark {
+  /* --bs-secondary: #18191a;#3a3b3c; */
+  --bs-tertiary: #18191a;
+  --bs-hover-color: #3a3b3c;
+  --bs-white: #242526;
+  --bs-body-color: var(--bs-just-white);
+  --bs-navbar-color: var(--bs-just-white);
+  --bs-nav-link-color: var(--bs-just-white);
+  --bs-filter-secondary-icon: invert(100%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%);
+}
+
+html.dark .bg-white {
+  background-color: #242526 !important;
+}
+
+html.dark .btn {
+  --bs-btn-color: var(--bs-just-white);
+}
+
+html.dark .btn svg {
+  color: var(--bs-btn-color);
+}
+
+html.dark .navbar {
+  --bs-navbar-hover-color: rgba(0, 0, 0, 0.3);
+}
+
+html.dark .navbar-nav-end .nav-link {
+  color: var(--bs-just-white);
+  background-color: var(--bs-hover-color);
+}
+
+html.dark .navbar-nav .nav-link.active,
+.navbar-nav .show>.nav-link {
+  color: var(--bs-primary);
+}
+
+html.dark .navbar-nav .nav-link.active:hover {
+  background-color: transparent;
+}
+
+html.dark .navbar-nav-end .nav-link.active:hover {
+  background-color: var(--bs-hover-color);
+}
+
+html.dark input,
+html.dark textarea,
+html.dark .container_AccountSettings li,
+html.dark .container_AccountSettings p,
+html.dark .container_AccountSettings svg,
+html.dark .container_AccountSettings i {
+  color: var(--bs-just-white);
+}
+
+html.dark .container_AccountSettings p.view-profile,
+html.dark .container-contacts h2,
+html.dark .container-contacts svg,
+html.dark #search svg {
+  color: #b0b3b8;
+}
+
+html.dark .navbar-nav {
+  --bs-navbar-color: var(--bs-just-white);
+  --bs-nav-link-color: var(--bs-just-white);
+}
+
+html.dark .icons-navbar:hover {
+  background-color: #3a3b3c;
+  color: var(--bs-just-white);
+}
+
+html.dark #search,
+html.dark .search,
+html.dark .input-search,
+html.dark .search-results:hover,
+html.dark .container-actions:hover,
+html.dark .container-comment,
+html.dark .container-publication-actions:hover,
+html.dark .container_publicationActions li:hover,
+html.dark .container_AccountSettings li:hover,
+html.dark .container-icons,
+html.dark .container-contacts::-webkit-scrollbar-thumb,
+html.dark .ContainerSearchResults ul::-webkit-scrollbar-thumb {
+  color: var(--bs-just-white);
+  background-color: var(--bs-hover-color);
+}
+
+html.dark body::-webkit-scrollbar-thumb {
+  color: #686868;
+}
+
+html.dark body::-webkit-scrollbar-track {
+  background-color: #424242;
+}
+
+html.dark .container-icon-comment:hover,
+html.dark .container-contacts i:hover,
+html.dark .container-contacts svg:hover,
+html.dark .icon-seemore {
+  background-color: var(--bs-white);
+}
+
+html.dark .container-icons i,
+html.dark .container_publicationActions i {
+  filter: var(--bs-filter-secondary-icon);
+}
+
 #root .text-area {
   overflow: hidden;
   resize: none;
   transition: 0.7s ease-in-out;
   border: 1px solid transparent;
   outline: 1px solid transparent;
+}
+
+#root .ContainerSearchResults ul:hover {
+  overflow-y: scroll !important;
 }

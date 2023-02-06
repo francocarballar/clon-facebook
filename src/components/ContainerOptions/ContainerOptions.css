@@ -5,10 +5,6 @@
   background-color: var(--bs-tertiary);
 }
 
-.container-options:hover {
-  overflow-y: scroll;
-}
-
 .container-options::-webkit-scrollbar {
   width: 10px;
   display: block;

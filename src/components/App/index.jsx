@@ -5,8 +5,10 @@ import { Search } from '../Search'
 import { ContainerOptions } from '../ContainerOptions'
 import { Main } from '../Main'
 import { Contacts } from '../Contacts'
+import { useDarkMode } from '../../hooks/useDarkMode'
 
 function App () {
+  useDarkMode()
   return (
     <Provider>
       <NavBar />

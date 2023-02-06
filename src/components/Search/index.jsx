@@ -36,6 +36,7 @@ function Search () {
         <div
           className='container-search fixed-top d-flex flex-column p-3'
           ref={searchRef}
+          style={{ maxHeight: '100vh' }}
         >
           <label htmlFor='search w-100'>
             <button
