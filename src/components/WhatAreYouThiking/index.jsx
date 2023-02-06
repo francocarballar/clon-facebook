@@ -9,7 +9,7 @@ import { IconHappyEmoji } from '../Icons/IconHappyEmoji'
 
 function WhatAreYouThiking () {
   const { user, myPosts, setMyPosts } = useContext(Context)
-  const { handleKeyDown, handleChange, handleInput } = useTextArea({
+  const { handleKeyDown, handleChange } = useTextArea({
     array: myPosts,
     setArray: setMyPosts
   })
@@ -29,7 +29,6 @@ function WhatAreYouThiking () {
               name='publish-a-post'
               onKeyDown={handleKeyDown}
               onChange={handleChange}
-              onInput={handleInput}
               className='fs-4 bg-transparent px-2 w-100 text-area'
               rows='1'
             />

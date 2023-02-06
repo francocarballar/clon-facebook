@@ -13,12 +13,11 @@ function ContainerComment ({ id }) {
   const { user, myComments, setMyComments } = useContext(Context)
   const [commentFindById, setCommentFindById] = useState({})
   const inputCommetRef = useRef(null)
-  const { handleKeyDown, handleChange, handleInput, endOfTextarea } =
-    useTextArea({
-      array: myComments,
-      setArray: setMyComments,
-      id
-    })
+  const { handleKeyDown, handleChange, endOfTextarea } = useTextArea({
+    array: myComments,
+    setArray: setMyComments,
+    id
+  })
   useEffect(() => {
     if (myComments) {
       const find = myComments.find(comment => comment.id === id)
@@ -64,7 +63,6 @@ function ContainerComment ({ id }) {
                 className='fs-4 bg-transparent px-2 w-100 text-area'
                 onKeyDown={handleKeyDown}
                 onChange={handleChange}
-                onInput={handleInput}
                 ref={inputCommetRef}
                 rows='1'
               />

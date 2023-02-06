@@ -92,6 +92,7 @@ function useTextArea ({ array, setArray, id }) {
         }
       }
       e.target.value = ''
+      setEndOfTextarea(false)
       e.target.style.height = 'auto'
     }
 
@@ -101,7 +102,9 @@ function useTextArea ({ array, setArray, id }) {
   }
 
   const handleChange = e => {
-    if (e.target.textLength < 29) {
+    e.target.style.height = 'auto'
+    const lineBreak = e.target.value.includes('\n')
+    if (e.target.textLength < 29 && !lineBreak) {
       setEndOfTextarea(false)
     }
     if (e.target.scrollHeight > e.target.offsetHeight) {
@@ -113,10 +116,7 @@ function useTextArea ({ array, setArray, id }) {
       e.target.style.height = 'auto'
     }
   }
-  const handleInput = e => {
-    e.target.style.height = 'auto'
-  }
-  return { handleKeyDown, handleChange, handleInput, endOfTextarea }
+  return { handleKeyDown, handleChange, endOfTextarea }
 }
 
 export { useTextArea }
