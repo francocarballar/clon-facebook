@@ -1,10 +1,9 @@
 .IconReport {
-    background-image:
-        url(https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/ZzfJKx3t9Ej.png);
-    background-position: center;
-    background-size: auto;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    display: inline-block;
+  background-image: url('/public/media/icons/report.png');
+  background-position: center;
+  background-size: auto;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  display: inline-block;
 }

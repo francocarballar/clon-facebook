@@ -1,24 +1,24 @@
 .container-options {
-    min-width: 300px;
-    max-width: 300px;
-    max-height: 90vh;
-    background-color: var(--bs-tertiary);
+  min-width: 300px;
+  max-width: 300px;
+  max-height: 90vh;
+  background-color: var(--bs-tertiary);
 }
 
 .container-options:hover {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 .container-options::-webkit-scrollbar {
-    width: 10px;
-    display: block;
+  width: 10px;
+  display: block;
 }
 
 .container-options::-webkit-scrollbar-thumb {
-    background-color: #c1c1c1;
-    border-radius: 5px;
+  background-color: #c1c1c1;
+  border-radius: 5px;
 }
 
 .container-options::-webkit-scrollbar-track {
-    border-radius: 5px;
+  border-radius: 5px;
 }

@@ -1,50 +1,82 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import './ContainerComment.css'
+import { Context } from '../../context'
+import { useTextArea } from '../../hooks/useTextArea'
+import { Avatar } from '../Avatar'
 import { Comment } from '../Comment'
 import { IconFace } from '../Icons/IconFace'
 import { IconCamera } from '../Icons/IconCamera'
 import { IconGif } from '../Icons/IconGif'
 import { IconSticker } from '../Icons/IconSticker'
 
-function ContainerComment () {
-  const [stateComment, setComment] = useState(false)
-  const [contents, setContents] = useState('')
+function ContainerComment ({ id }) {
+  const { user, myComments, setMyComments } = useContext(Context)
+  const [commentFindById, setCommentFindById] = useState({})
+  const inputCommetRef = useRef(null)
+  const { handleKeyDown, handleChange, handleInput, endOfTextarea } =
+    useTextArea({
+      array: myComments,
+      setArray: setMyComments,
+      id
+    })
+  useEffect(() => {
+    if (myComments) {
+      const find = myComments.find(comment => comment.id === id)
+      setCommentFindById(find)
+    }
+  })
+  useEffect(() => {
+    if (commentFindById) {
+      inputCommetRef.current.focus()
+    }
+  }, [commentFindById])
   return (
     <>
       <hr />
-      <div className='d-flex flex-column justify-content-start align-items-center footer-div--comments'>
-        {stateComment && <Comment comment={contents} />}
-        <div className='d-flex flex-row justify-content-start align-items-center'>
-          <figure className='m-0 figure-profile-picture--comment'>
-            <img
-              loading='lazy'
-              src='https://raw.githubusercontent.com/francocarballar/clon-de-google/master/assets/img/account.jpg'
-              alt='Foto de perfil de Franco Carballar'
-              className='profile-picture--comment'
+      <div className='d-flex flex-column justify-content-start align-items-center footer-div--comments w-100'>
+        {commentFindById?.comments && commentFindById.comments?.length > 0 ? (
+          commentFindById.comments.map(comment => (
+            <Comment
+              key={`${comment.comment} by post with id ${commentFindById.id}`}
+              comment={comment.comment}
             />
-            <label className='online'>
-              <p width='8px' height='8px' />
-            </label>
-          </figure>
-          <div className='d-flex justify-content-between ms-3 px-3 py-2 container-comment'>
-            <label htmlFor='comment'>
-              <input
+          ))
+        ) : (
+          <></>
+        )}
+        <div className='d-flex flex-row justify-content-start align-items-start w-100 px-3'>
+          <Avatar alt={user.alt} profilePicture={user.img} online size='35px' />
+          <div className='d-flex align-items-center ms-3 px-3 py-2 container-comment position-relative top-0 start-0'>
+            <label
+              htmlFor='comment'
+              className={'w-100 me-3'}
+              style={
+                endOfTextarea
+                  ? { marginBottom: '28px' }
+                  : { marginBottom: '0px' }
+              }
+            >
+              <textarea
                 type='text'
                 placeholder='Escribe un comentario...'
                 name='comment'
                 id='comment'
-                className='fs-4 bg-transparent px-2'
-                onKeyUp={e => {
-                  const key = e.keyCode
-                  if (key === 13) {
-                    setComment(true)
-                    setContents(e.target.value)
-                    e.target.value = ''
-                  }
-                }}
+                className='fs-4 bg-transparent px-2 w-100 text-area'
+                onKeyDown={handleKeyDown}
+                onChange={handleChange}
+                onInput={handleInput}
+                ref={inputCommetRef}
+                rows='1'
               />
             </label>
-            <div className='d-flex gap-sm-2 px-2'>
+            <div
+              className={
+                endOfTextarea
+                  ? 'd-flex gap-sm-2 px-2 position-absolute end-0'
+                  : 'd-flex gap-sm-2 px-2'
+              }
+              style={{ bottom: '5px' }}
+            >
               <div className='container-icon-comment'>
                 <IconFace />
               </div>

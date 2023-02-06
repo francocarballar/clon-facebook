@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './ContainerOptions.css'
+import { Context } from '../../context/index'
 import { Options } from '../Options'
 import { IconSearchFriends } from '../Icons/IconSearchFriends'
 import { IconGroups } from '../Icons/IconGroups'
@@ -10,19 +11,20 @@ import { IconBookmarkColor } from '../Icons/IconBookmarkColor'
 import { IconPagesColor } from '../Icons/IconPagesColor'
 import { IconEventColor } from '../Icons/IconEventColor'
 import { IconSeeMore } from '../Icons/IconSeeMore'
+import { Avatar } from '../Avatar'
 
 function ContainerOptions () {
+  const { user } = useContext(Context)
   return (
     <section className='container-options position-fixed start-0 d-none d-xl-flex flex-column justify-content-start align-items-center p-4'>
       <Options text='Franco Carballar'>
-        <figure className='m-0 figure-profile-picture--comment'>
-          <img
-            loading='lazy'
-            src='https://raw.githubusercontent.com/francocarballar/clon-de-google/master/assets/img/account.jpg'
-            alt='Foto de perfil de Franco Carballar'
-            className='profile-picture profile-picture--contact'
-          />
-        </figure>
+        <Avatar
+          name={user.name}
+          profilePicture={user.img}
+          alt={user.alt}
+          size='30px'
+          online={false}
+        />
       </Options>
       <Options text='Buscar amigos'>
         <IconSearchFriends />

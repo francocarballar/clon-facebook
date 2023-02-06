@@ -1,6 +1,6 @@
 :root {
   --bs-primary: #3578e5;
-  --bs-secondary: #E4E6EB;
+  --bs-secondary: #e4e6eb;
   --bs-tertiary: #f0f2f5;
   --nav-link-active: #e7f3ff;
   --bs-filter-secondary-icon: invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%);
@@ -26,4 +26,16 @@ body {
 #root {
   width: 100%;
   height: 100%;
+}
+
+p {
+  word-wrap: break-word !important;
+}
+
+#root .text-area {
+  overflow: hidden;
+  resize: none;
+  transition: 0.7s ease-in-out;
+  border: 1px solid transparent;
+  outline: 1px solid transparent;
 }

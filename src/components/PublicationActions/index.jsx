@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './PublicationActions.css'
+import { useOutside } from '../../hooks/useOutside'
 import { IconBookmark } from '../Icons/IconBookmark'
 import { IconNotification } from '../Icons/IconNotification'
 import { IconInsertCode } from '../Icons/IconInsertCode'
@@ -7,45 +8,40 @@ import { IconHide } from '../Icons/IconHide'
 import { IconClock } from '../Icons/IconClock'
 import { IconStopFollowing } from '../Icons/IconStopFollowing'
 import { IconReport } from '../Icons/IconReport'
+import { LiPublicationActions } from '../LiPublicationActions'
 
-function PublicationActions () {
+function PublicationActions ({ setPublicationActions, name }) {
+  const publicationActionsRef = useRef(null)
+  useOutside(publicationActionsRef, setPublicationActions)
   return (
-    <div className='container_publicationActions p-4'>
+    <div
+      className='container_publicationActions p-4'
+      ref={publicationActionsRef}
+    >
       <ul className='w-100 p-0 d-flex flex-column gap-1'>
-        <li className='d-flex justify-content-start align-items-center'>
+        <LiPublicationActions text='Guardar enlace'>
           <IconBookmark />
-          <p className='my-0 ms-3 fs-4 fw-semibold'>Guardar enlace</p>
-        </li>
+        </LiPublicationActions>
         <hr className='m-2' />
-        <li className='d-flex justify-content-start align-items-center'>
+        <LiPublicationActions text='Activar notificaciones de esta publicación'>
           <IconNotification />
-          <p className='my-0 ms-3 fs-4 fw-semibold'>
-            Activar notificaciones de esta publicación
-          </p>
-        </li>
-        <li className='d-flex justify-content-start align-items-center'>
+        </LiPublicationActions>
+        <LiPublicationActions text='Insertar'>
           <IconInsertCode />
-          <p className='my-0 ms-3 fs-4 fw-semibold'>Insertar</p>
-        </li>
+        </LiPublicationActions>
         <hr className='m-2' />
-        <li className='d-flex justify-content-start align-items-center'>
+        <LiPublicationActions text='Ocultar publicación'>
           <IconHide />
-          <p className='my-0 ms-3 fs-4 fw-semibold'>Ocultar publicación</p>
-        </li>
-        <li className='d-flex justify-content-start align-items-center'>
+        </LiPublicationActions>
+        <LiPublicationActions text='Ocultar a durante 30 días'>
           <IconClock />
-          <p className='my-0 ms-3 fs-4 fw-semibold'>
-            Ocultar a durante 30 días
-          </p>
-        </li>
-        <li className='d-flex justify-content-start align-items-center'>
+        </LiPublicationActions>
+        <LiPublicationActions text={`Dejar de seguir a ${name}`}>
           <IconStopFollowing />
-          <p className='my-0 ms-3 fs-4 fw-semibold'>Dejar de seguir a</p>
-        </li>
-        <li className='d-flex justify-content-start align-items-center'>
+        </LiPublicationActions>
+        <LiPublicationActions text='Reportar publicación'>
           <IconReport />
-          <p className='my-0 ms-3 fs-4 fw-semibold'>Reportar publicación</p>
-        </li>
+        </LiPublicationActions>
       </ul>
     </div>
   )

@@ -1,12 +1,15 @@
 import React from 'react'
 
-function ContainerActions ({ classContainer, classP, styleP, children, text, onClick }) {
-  const stylesContainer = `d-flex justify-content-center align-items-center container-actions p-3 ${classContainer}`
-  const stylesP = `mx-3 my-0 ${classP}`
+function ContainerActions ({ liked, children, text, onClick, classContainer }) {
   return (
-    <div className={stylesContainer} onClick={onClick}>
+    <div
+      className={`${classContainer} d-flex justify-content-center align-items-center container-actions p-3`}
+      onClick={onClick}
+    >
       {children}
-      <p className={stylesP} style={styleP}>{text}</p>
+      <p className={liked ? 'mx-3 my-0 fs-3 fw-semibold active' : 'mx-3 my-0'}>
+        {text}
+      </p>
     </div>
   )
 }

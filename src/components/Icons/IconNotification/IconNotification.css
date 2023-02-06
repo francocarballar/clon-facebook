@@ -1,10 +1,9 @@
 .IconNotification {
-    background-image:
-        url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/GNd7_jItu28.png);
-    background-position: 0px -71px;
-    background-size: auto;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    display: inline-block;
+  background-image: url('/public/media/icons/actions.png');
+  background-position: 0px -116px;
+  background-size: auto;
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  display: inline-block;
 }

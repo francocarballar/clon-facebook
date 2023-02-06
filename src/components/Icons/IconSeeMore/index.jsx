@@ -1,9 +1,10 @@
 import './IconSeeMore.css'
+import { IoIosArrowDown } from 'react-icons/io'
 
 function IconSeeMore () {
   return (
     <div className='icon-seemore'>
-      <i className='fa-solid fa-angle-down'></i>
+      <IoIosArrowDown />
     </div>
   )
 }

@@ -1,56 +1,85 @@
 .post {
-    max-width: 50rem;
-    background-color: var(--bs-white);
-    border-radius: 10px;
+  max-width: 50rem;
+  background-color: var(--bs-white);
+  border-radius: 10px;
 }
 
 .profile-picture {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .container-publication-actions {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .container-publication-actions:hover {
-    background-color: var(--bs-tertiary);
+  background-color: var(--bs-tertiary);
 }
 
 .post hr {
-    width: 90%;
+  width: 90%;
 }
 
 .footer-div--actions {
-    max-width: 45rem;
+  width: 100%;
+  max-width: 45rem;
+  gap: 20px;
+}
+
+.footer-div--actions div p {
+  display: none;
 }
 
 .container-actions {
-    padding: 8px 8px;
-    border-radius: 10px;
-    cursor: pointer;
+  padding: 8px 8px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .container-actions:hover {
-    background-color: var(--bs-tertiary);
+  background-color: var(--bs-tertiary);
+}
+
+.container-actions .active {
+  color: var(--bs-primary);
+}
+
+.container-actions svg {
+  width: 18px;
+  height: 18px;
+}
+
+.container-actions .likeActive {
+  color: var(--bs-primary);
 }
 
 .text-actions {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
-@media(min-width: 1024px) {
-    .text-actions {
-        font-size: 1.8rem;
-    }
+@media (min-width: 375px) {
+  .footer-div--actions {
+    gap: 0px;
+  }
+
+  .footer-div--actions div p {
+    display: inline-block;
+  }
 }
 
-@media(min-width: 500px) {
-    .container-actions {
-        padding: 10px 15px;
-    }
+@media (min-width: 1024px) {
+  .text-actions {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .container-actions {
+    padding: 10px 15px;
+  }
 }

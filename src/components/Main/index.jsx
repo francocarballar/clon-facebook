@@ -1,9 +1,13 @@
+import React, { useContext } from 'react'
 import './Main.css'
+import { Context } from '../../context'
 import { ContainerStories } from '../ContainerStories'
 import { WhatAreYouThiking } from '../WhatAreYouThiking'
 import { Publication } from '../Publication'
+import { users } from '../../db/users'
 
 function Main () {
+  const { myPosts } = useContext(Context)
   return (
     <main
       id='main'
@@ -11,61 +15,30 @@ function Main () {
     >
       <ContainerStories />
       <WhatAreYouThiking />
-      <Publication
-        image='https://source.unsplash.com/random/1'
-        name='Elon Musk'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/2'
-        name='Mark Zuckerberg'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/3'
-        name='Freddy Vega'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/4'
-        name='Santi Siri'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/5'
-        name='Estefany Aguilar'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/6'
-        name='Rocio Belén Osorio'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/7'
-        name='Máximiliano Acosta'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/8'
-        name='Ruben Moreno'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/9'
-        name='Rosa Suarez'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/10'
-        name='Juan Manuel Diaz'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
-      <Publication
-        image='https://source.unsplash.com/random/11'
-        name='Carlos Mujica'
-        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, nostrum. Dicta perferendis quis doloremque aspernatur, aliquid earum hic sint rem commodi ipsum! Perferendis itaque maxime id. Doloribus cumque illo saepe!'
-      />
+      {myPosts &&
+        myPosts
+          ?.sort((a, b) => {
+            return b.id - a.id
+          })
+          .map(post => (
+            <Publication
+              key={post.id}
+              id={post.id}
+              name={post.name}
+              profilePicture={post['profile-picture']}
+              description={post.post.description}
+            />
+          ))}
+      {users.map(user => (
+        <Publication
+          key={user.id}
+          id={user.id}
+          name={user.name}
+          profilePicture={user['profile-picture']}
+          description={user.post.description}
+          image={user.post.img}
+        />
+      ))}
     </main>
   )
 }

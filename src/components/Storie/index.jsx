@@ -1,15 +1,15 @@
 import React from 'react'
 import './Storie.css'
 
-function Storie ({ profilePicture, imgStorie, name, classFigure }) {
+function Storie ({ profilePicture, imgStorie, name }) {
   return (
-    <figure
-      className={`position-relative d-flex justify-content-center ${classFigure}`}
-    >
+    <figure className='position-relative d-flex justify-content-center'>
       <img
         src={imgStorie}
-        className='img-fluid w-100 h-100'
+        className='img-fluid'
         alt={`Historia de ${name}`}
+        width='113px'
+        height='200px'
       />
       <div className='position-absolute'>
         <img

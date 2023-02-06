@@ -1,0 +1,21 @@
+.figure-profile-picture--comment {
+  position: relative;
+}
+
+.online {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 2px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--bs-white);
+  border-radius: 50%;
+}
+
+.online div {
+  width: 8px;
+  height: 8px;
+  background-color: var(--bs-green);
+  border-radius: 50%;
+}

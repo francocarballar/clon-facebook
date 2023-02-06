@@ -1,24 +1,13 @@
 {
   "name": "clon-facebook",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "private": true,
-  "dependencies": {
-    "@popperjs/core": "^2.11.5",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^5.2.0",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.4.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "buildnserve": "react-scripts build && serve -s build",
+    "lint": "eslint --fix src/**/*.jsx",
+    "format": "prettier-standard --format"
   },
   "eslintConfig": {
     "extends": [
@@ -38,7 +27,40 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-scripts": "^5.0.1"
+  },
   "devDependencies": {
-    "standard": "^17.0.0"
+    "eslint": "^8.32.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.1",
+    "prettier-standard": "^16.4.1"
+  },
+  "description": "Clon del feed de Facebook, es una proyecto creado para prácticar los conceptos del desarrollo web. Su única intención es imitar la apariencia y el funcionamiento de www.facebook.com, no tiene como objetivo reemplazar o sustituir la página oficial de Facebook.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francocarballar/clon-facebook.git"
+  },
+  "keywords": [
+    "React.js",
+    "JavaScript",
+    "Bootstrap",
+    "React",
+    "Bootstrap",
+    "CSS",
+    "PWA"
+  ],
+  "author": "Franco Carballar <francocarballar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/francocarballar/clon-facebook/issues"
   }
 }

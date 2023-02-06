@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './App.css'
+import React from 'react'
+import { Provider } from '../../context'
 import { NavBar } from '../NavBar'
 import { Search } from '../Search'
 import { ContainerOptions } from '../ContainerOptions'
@@ -7,17 +7,19 @@ import { Main } from '../Main'
 import { Contacts } from '../Contacts'
 
 function App () {
-  const [openSearch, setOpenSearch] = useState(false)
   return (
-    <>
-      <NavBar setOpenSearch={setOpenSearch} />
-      <Search openSearch={openSearch} setOpenSearch={setOpenSearch} />
-      <div className='d-flex justify-content-between align-items-start position-relative'>
+    <Provider>
+      <NavBar />
+      <Search />
+      <div
+        className='d-flex justify-content-between align-items-start position-relative'
+        style={{ top: '50px' }}
+      >
         <ContainerOptions />
         <Main />
         <Contacts />
       </div>
-    </>
+    </Provider>
   )
 }
 

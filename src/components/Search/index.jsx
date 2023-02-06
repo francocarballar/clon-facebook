@@ -1,48 +1,66 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useContext, useEffect, useState } from 'react'
 import './Search.css'
+import { Context } from '../../context'
+import { useOutside } from '../../hooks/useOutside'
+import { BsArrowLeftShort } from 'react-icons/bs'
+import { ContainerSearchResults } from '../ContainerSearchResults'
 
-function Search ({ openSearch, setOpenSearch }) {
-  function useOutsideAlerter (ref) {
-    useEffect(() => {
-      function handleClickOutside (event) {
-        if (ref.current && !ref.current.contains(event.target)) {
-          setOpenSearch(false)
-        }
-      }
-      document.addEventListener('mousedown', handleClickOutside)
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside)
-      }
-    }, [ref])
+function Search () {
+  const { openSearch, setOpenSearch, savedUsers } = useContext(Context)
+  const [searchPeople, setSearchPeople] = useState([])
+  const searchRef = useRef(null)
+  useOutside(searchRef, setOpenSearch)
+  const inputSearchRef = useRef(null)
+  useEffect(() => {
+    if (inputSearchRef.current !== null) {
+      inputSearchRef.current.focus()
+    }
+  }, [openSearch])
+  const handleChange = e => {
+    const name = e.target.value
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+    const regex = new RegExp(name, 'i')
+    const users = savedUsers.filter(user =>
+      regex.test(user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
+    )
+    users.sort((a, b) => a.name.localeCompare(b.name))
+    setSearchPeople(users)
   }
-  const wrapperRef = useRef(null)
-  useOutsideAlerter(wrapperRef)
+  // TODO: Guardar en el localstorage las personas buscadas, creo que debería ejecutar esa lógica
+  // dentro de la función handleChange
   return (
     <>
       {openSearch && (
         <div
           className='container-search fixed-top d-flex flex-column p-3'
-          ref={wrapperRef}
+          ref={searchRef}
         >
           <label htmlFor='search w-100'>
             <button
               type='button'
-              className='btn mx-2'
+              className='btn px-1'
               onClick={() => setOpenSearch(false)}
             >
-              <i class='fa-solid fa-arrow-left' />
+              <BsArrowLeftShort />
             </button>
             <input
               type='text'
-              name='search'
               className='search mx-2 px-4 fs-3'
               placeholder='Buscar en facebook'
-              autocumple='list'
+              autoComplete='list'
+              ref={inputSearchRef}
+              onChange={handleChange}
             />
           </label>
-          <ul className='d-flex justify-content-center align-items-center pt-4 ps-0 mb-0'>
-            <p className='fs-3'>No hay busquedas recientes</p>
-          </ul>
+          {searchPeople && searchPeople.length > 0 ? (
+            <ContainerSearchResults searchPeople={searchPeople} />
+          ) : (
+            <ul className='d-flex justify-content-center align-items-center pt-4 ps-0 mb-0'>
+              <p className='fs-3'>No hay búsquedas recientes</p>
+            </ul>
+          )}
         </div>
       )}
     </>

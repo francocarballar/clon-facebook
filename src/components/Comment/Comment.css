@@ -1,9 +1,0 @@
-.comment {
-    min-width: 30rem;
-}
-
-@media(min-width: 600px) {
-    .comment {
-        min-width: 35rem;
-    }
-}

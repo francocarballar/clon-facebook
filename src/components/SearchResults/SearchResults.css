@@ -1,0 +1,4 @@
+.search-results:hover {
+  background-color: var(--bs-secondary);
+  cursor: pointer;
+}

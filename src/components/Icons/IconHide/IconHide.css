@@ -1,10 +1,9 @@
 .IconHide {
-    background-image:
-        url(https://static.xx.fbcdn.net/rsrc.php/v3/yK/r/l36ouVTLKY-.png);
-    background-position: center;
-    background-size: auto;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    display: inline-block;
+  background-image: url('/public/media/icons/hide.png');
+  background-position: center;
+  background-size: auto;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  display: inline-block;
 }

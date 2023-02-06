@@ -1,38 +1,28 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useContext } from 'react'
 import './AccountSettings.css'
+import { Context } from '../../context'
+import { useOutside } from '../../hooks/useOutside'
 import { ContainerIcon } from '../ContainerIcon'
 import { IconPublicationActions } from '../Icons/IconPublicationActions'
 import { IconPostComments } from '../Icons/IconPostComments'
 import { IconSignOff } from '../Icons/IconSignOff'
+import { Avatar } from '../Avatar'
+import { IoSettingsSharp, IoHelpCircleSharp, IoMoon } from 'react-icons/io5'
 
-function AccountSettings ({ setAccountSettings }) {
-  function useOutsideAlerter (ref) {
-    useEffect(() => {
-      function handleClickOutside (event) {
-        if (ref.current && !ref.current.contains(event.target)) {
-          setAccountSettings(false)
-        }
-      }
-      document.addEventListener('mousedown', handleClickOutside)
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside)
-      }
-    }, [ref])
-  }
-  const wrapperRef = useRef(null)
-  useOutsideAlerter(wrapperRef)
+function AccountSettings () {
+  const { setAccountSettings, user } = useContext(Context)
+  const accountSettingRef = useRef(null)
+  useOutside(accountSettingRef, setAccountSettings)
   return (
-    <div className='container_AccountSettings p-4' ref={wrapperRef}>
+    <div className='container_AccountSettings p-4' ref={accountSettingRef}>
       <ul className='w-100 p-0 d-flex flex-column gap-1'>
         <li className='d-flex justify-content-start align-items-center'>
-          <figure className='m-0 figure-profile-picture--comment'>
-            <img
-              loading='lazy'
-              src='https://raw.githubusercontent.com/francocarballar/clon-de-google/master/assets/img/account.jpg'
-              alt='Foto de perfil de Franco Carballar'
-              className='profile-picture--comment'
-            />
-          </figure>
+          <Avatar
+            alt={user.alt}
+            profilePicture={user.img}
+            online={false}
+            size='35px'
+          />
           <div className='d-flex flex-column'>
             <p className='my-0 ms-3 fs-4 fw-semibold'>Franco Carballar</p>
             <p className='my-0 ms-3 fs-5 fw-semibold view-profile'>
@@ -49,7 +39,7 @@ function AccountSettings ({ setAccountSettings }) {
         </li>
         <li className='d-flex justify-content-start align-items-center'>
           <ContainerIcon>
-            <i class='fa-solid fa-gear'></i>
+            <IoSettingsSharp />
           </ContainerIcon>
           <p className='my-0 ms-3 fs-4 fw-semibold'>
             Configuración y privacidad
@@ -57,13 +47,13 @@ function AccountSettings ({ setAccountSettings }) {
         </li>
         <li className='d-flex justify-content-start align-items-center'>
           <ContainerIcon>
-            <i class='fa-solid fa-circle-question'></i>
+            <IoHelpCircleSharp />
           </ContainerIcon>
           <p className='my-0 ms-3 fs-4 fw-semibold'>Ayuda y soporte técnico</p>
         </li>
         <li className='d-flex justify-content-start align-items-center'>
           <ContainerIcon>
-            <i class='fa-solid fa-moon'></i>
+            <IoMoon />
           </ContainerIcon>
           <p className='my-0 ms-3 fs-4 fw-semibold'>Pantalla y accesibilidad</p>
         </li>

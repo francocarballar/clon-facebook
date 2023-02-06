@@ -1,7 +1,7 @@
 import './IconPostComments.css'
 
 function IconPostComments () {
-  return <i data-visualcompletion='css-img' className='IconPostComments' />
+  return <i className='IconPostComments' />
 }
 
 export { IconPostComments }

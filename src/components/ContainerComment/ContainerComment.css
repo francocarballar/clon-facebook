@@ -1,69 +1,53 @@
-.figure-profile-picture--comment {
-    position: relative;
-}
-
-.profile-picture--comment {
-    margin-left: 15px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.online {
-    position: absolute;
-    right: 3px;
-    bottom: 0;
-    padding: 1px;
-    width: 10px;
-    height: 10px;
-    background-color: var(--bs-white);
-    border-radius: 50%;
-}
-
-.online p {
-    width: 8px;
-    height: 8px;
-    background-color: var(--bs-green);
-    border-radius: 50%;
-}
-
 .container-comment {
-    width: 82%;
-    max-width: 45rem;
-    background-color: var(--bs-tertiary);
-    border-radius: 25px;
+  width: 100%;
+  background-color: var(--bs-tertiary);
+  border-radius: 25px;
+}
+
+.container-comment div {
+  display: none !important;
 }
 
 #comment {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 .container-icon-comment {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border-radius: 50%;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .container-icon-comment:hover {
-    background-color: var(--bs-secondary);
+  background-color: var(--bs-secondary);
 }
 
-@media(min-width: 600px) {
-    .footer-div--comments {
-        width: 90%;
-    }
+@media (min-width: 375px) {
+  .container-comment div {
+    display: flex !important;
+  }
 
-    .container-comment {
-        width: 100%;
-    }
+  .footer-div--comments {
+    max-width: 45rem;
+  }
+}
 
-    .profile-picture--comment {
-        margin-left: 0;
-        width: 40px;
-        height: 40px;
-    }
+@media (min-width: 600px) {
+  .footer-div--comments {
+    width: 90%;
+  }
+
+  .container-comment {
+    width: 100%;
+  }
+
+  .profile-picture--comment {
+    margin-left: 0;
+    width: 40px;
+    height: 40px;
+  }
 }
