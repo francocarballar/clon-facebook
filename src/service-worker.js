@@ -19,6 +19,9 @@ clientsClaim()
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST)
 
+// Nombre de la cache a actualizar
+const CACHE_NAME = '/static/js/main.9f42a6b3.js'
+
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell
@@ -66,6 +69,34 @@ self.addEventListener('message', event => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting()
   }
+})
+
+self.addEventListener('activate', function (event) {
+  event.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames.map(cacheName =>
+          cacheName !== CACHE_NAME ? caches.delete(cacheName) : undefined
+        )
+      )
+    })
+  )
+})
+
+self.addEventListener('fetch', function (event) {
+  event.respondWith(
+    caches.open(CACHE_NAME).then(function (cache) {
+      return cache.match(event.request).then(function (response) {
+        return (
+          response ||
+          fetch(event.request).then(function (response) {
+            cache.put(event.request, response.clone())
+            return response
+          })
+        )
+      })
+    })
+  )
 })
 
 // Any other custom service worker logic can go here.
