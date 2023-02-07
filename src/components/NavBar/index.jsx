@@ -11,15 +11,19 @@ import { IconWatch } from '../Icons/IconWatch'
 import { IconMarketplace } from '../Icons/IconMarketplace'
 import { IconVideoGame } from '../Icons/IconVideoGame'
 import { IconMenu } from '../Icons/IconMenu'
-import { AccountSettings } from '../AccountSettings'
 import { SiMessenger } from 'react-icons/si'
 import { IoNotificationsSharp, IoAddSharp, IoMenuSharp } from 'react-icons/io5'
 import { TiArrowSortedDown } from 'react-icons/ti'
+import { AccountSettings } from '../AccountSettings'
+import { ScreenAndAccessibility } from '../ScreenAndAccessibility'
 
 function NavBar () {
-  const { setOpenSearch, accountSettings, setAccountSettings } = useContext(
-    Context
-  )
+  const {
+    setOpenSearch,
+    accountSettings,
+    setAccountSettings,
+    screenAndAccessibility
+  } = useContext(Context)
   const stateLinks = {
     home: true,
     groups: false,
@@ -188,8 +192,9 @@ function NavBar () {
                 onClick={() => setAccountSettings(!accountSettings)}
               >
                 <TiArrowSortedDown />
-                {accountSettings && <AccountSettings />}
               </Nav.Link>
+              {accountSettings && <AccountSettings />}
+              {screenAndAccessibility && <ScreenAndAccessibility />}
             </Nav>
           </div>
         </div>

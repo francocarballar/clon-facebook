@@ -1,9 +1,22 @@
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
+import { Context } from '../context'
 
 const useDarkMode = () => {
+  const { theme, setTheme } = useContext(Context)
+
+  const prefersColorScheme = () => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark')
+      setTheme('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      setTheme('light')
+    }
+  }
+
   useEffect(() => {
     if (
-      localStorage.theme === 'dark' ||
+      theme === 'dark' ||
       (!('theme' in localStorage) &&
         window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
@@ -11,17 +24,30 @@ const useDarkMode = () => {
     } else {
       document.documentElement.classList.remove('dark')
     }
-  }, [])
+  }, [theme])
+
+  const html = document.documentElement
   const toggle = () => {
-    const html = document.documentElement
     html.classList.toggle('dark')
     if (html.classList.contains('dark')) {
-      localStorage.setItem('theme', 'dark')
+      setTheme('dark')
     } else if (!html.classList.contains('dark')) {
-      localStorage.setItem('theme', 'light')
+      setTheme('light')
     }
   }
-  return { toggle }
+
+  const activated = () => {
+    html.classList.remove('light')
+    html.classList.add('dark')
+    setTheme('dark')
+  }
+
+  const disabled = () => {
+    html.classList.remove('dark')
+    html.classList.add('light')
+    setTheme('light')
+  }
+  return { prefersColorScheme, toggle, activated, disabled }
 }
 
 export { useDarkMode }

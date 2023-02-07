@@ -5,8 +5,10 @@ import { ContainerStories } from '../ContainerStories'
 import { WhatAreYouThiking } from '../WhatAreYouThiking'
 import { Publication } from '../Publication'
 import { users } from '../../db/users'
+import { useDarkMode } from '../../hooks/useDarkMode'
 
 function Main () {
+  useDarkMode()
   const { myPosts } = useContext(Context)
   return (
     <main

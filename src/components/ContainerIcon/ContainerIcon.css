@@ -5,3 +5,8 @@
   cursor: pointer;
   background-color: var(--bs-secondary);
 }
+
+.container-icons svg {
+  width: 20px;
+  height: 20px;
+}

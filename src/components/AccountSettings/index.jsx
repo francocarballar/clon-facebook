@@ -10,7 +10,8 @@ import { Avatar } from '../Avatar'
 import { IoSettingsSharp, IoHelpCircleSharp, IoMoon } from 'react-icons/io5'
 
 function AccountSettings () {
-  const { setAccountSettings, user } = useContext(Context)
+  const { setAccountSettings, user, setScreenAndAccessibility } =
+    useContext(Context)
   const accountSettingRef = useRef(null)
   useOutside(accountSettingRef, setAccountSettings)
   return (
@@ -51,7 +52,13 @@ function AccountSettings () {
           </ContainerIcon>
           <p className='my-0 ms-3 fs-4 fw-semibold'>Ayuda y soporte técnico</p>
         </li>
-        <li className='d-flex justify-content-start align-items-center'>
+        <li
+          className='d-flex justify-content-start align-items-center'
+          onClick={() => {
+            setAccountSettings(false)
+            setScreenAndAccessibility(true)
+          }}
+        >
           <ContainerIcon>
             <IoMoon />
           </ContainerIcon>

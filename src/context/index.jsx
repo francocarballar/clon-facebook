@@ -9,8 +9,10 @@ const Provider = ({ children }) => {
   const [savedUsers, setSavedUsers] = useLocalStorage('users')
   const [openSearch, setOpenSearch] = useState(false)
   const [accountSettings, setAccountSettings] = useState(false)
+  const [screenAndAccessibility, setScreenAndAccessibility] = useState(false)
   const [myComments, setMyComments] = useLocalStorage('comments')
   const [myPosts, setMyPosts] = useLocalStorage('my-posts')
+  const [theme, setTheme] = useLocalStorage('theme')
   useEffect(() => {
     setUser({
       name: 'Franco Carballar',
@@ -35,10 +37,14 @@ const Provider = ({ children }) => {
         setOpenSearch,
         accountSettings,
         setAccountSettings,
+        screenAndAccessibility,
+        setScreenAndAccessibility,
         myComments,
         setMyComments,
         myPosts,
-        setMyPosts
+        setMyPosts,
+        theme,
+        setTheme
       }}
     >
       {children}
