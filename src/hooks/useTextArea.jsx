@@ -5,6 +5,7 @@ function useTextArea ({ array, setArray, id }) {
   const { user, myPosts, myComments, setMyComments } = useContext(Context)
   const [, setCommentFindById] = useState({})
   const [endOfTextarea, setEndOfTextarea] = useState(false)
+  const [valueTextarea, setValueTextarea] = useState('')
   const handleKeyDown = e => {
     const key = e.key
     const value = e.target.value
@@ -102,6 +103,7 @@ function useTextArea ({ array, setArray, id }) {
   }
 
   const handleChange = e => {
+    setValueTextarea(e.target.value)
     e.target.style.height = 'auto'
     const lineBreak = e.target.value.includes('\n')
     if (e.target.textLength < 29 && !lineBreak) {
@@ -116,7 +118,93 @@ function useTextArea ({ array, setArray, id }) {
       e.target.style.height = 'auto'
     }
   }
-  return { handleKeyDown, handleChange, endOfTextarea }
+
+  const handleSubmitMobile = e => {
+    const isNotEmpty = valueTextarea !== '' && !/^\n/.test(valueTextarea) && !/^$/.test(valueTextarea)
+    e.preventDefault()
+    if (isNotEmpty) {
+      if (!array) {
+        if (array === myPosts) {
+          const newPost = {
+            id: 1,
+            name: user.name,
+            'profile-picture': user.img,
+            post: {
+              description: valueTextarea
+            }
+          }
+          setArray([newPost])
+        }
+        if (array === myComments) {
+          const commentsByPublication = [
+            {
+              id,
+              comments: [
+                {
+                  comment: valueTextarea
+                }
+              ]
+            }
+          ]
+          setMyComments(commentsByPublication)
+          setMyComments(commentsByPublication)
+          const find = commentsByPublication.find(
+            comment => comment.id === id
+          )
+          setCommentFindById(find)
+        }
+      } else {
+        if (array === myPosts) {
+          const newPost = {
+            id: array.length + 1,
+            name: user.name,
+            'profile-picture': user.img,
+            post: {
+              description: valueTextarea
+            }
+          }
+          setArray(array.concat(newPost))
+        } else if (array === myComments) {
+          const i = myComments.findIndex(comment => comment.id === id)
+          if (i !== -1) {
+            const newComment = {
+              comment: valueTextarea
+            }
+            const commentsByPublication = myComments.map(p => {
+              if (p.id === id) {
+                return { ...p, comments: p.comments.concat(newComment) }
+              }
+              return p
+            })
+            setMyComments(commentsByPublication)
+            const find = commentsByPublication.find(
+              comment => comment.id === id
+            )
+            setCommentFindById(find)
+          } else {
+            const newComment = {
+              id,
+              comments: [
+                {
+                  comment: valueTextarea
+                }
+              ]
+            }
+            const newsCommentsByPublication = myComments.concat(newComment)
+            setMyComments(newsCommentsByPublication)
+            const find = newsCommentsByPublication.find(
+              comment => comment.id === id
+            )
+            setCommentFindById(find)
+          }
+        }
+      }
+    }
+    setValueTextarea('')
+    setEndOfTextarea(false)
+  }
+
+  return { handleKeyDown, handleChange, handleSubmitMobile, endOfTextarea }
 }
 
 export { useTextArea }

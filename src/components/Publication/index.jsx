@@ -80,7 +80,7 @@ function Publication ({ id, profilePicture, name, description, image }) {
         </section>
         <hr />
         <footer className='d-flex flex-column justify-content-between align-items-center pb-4 w-100'>
-          <div className='d-flex flex-row justify-content-center fs-3 footer-div--actions'>
+          <div className='d-flex flex-row justify-content-center fs-4 fs-md-3 footer-div--actions'>
             <ContainerActions liked={like} text='Me gusta' onClick={clickLike}>
               {like ? <IconLikeActive /> : <IconLike />}
             </ContainerActions>

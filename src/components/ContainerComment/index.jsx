@@ -8,12 +8,13 @@ import { IconFace } from '../Icons/IconFace'
 import { IconCamera } from '../Icons/IconCamera'
 import { IconGif } from '../Icons/IconGif'
 import { IconSticker } from '../Icons/IconSticker'
+import { IoSendSharp } from 'react-icons/io5'
 
 function ContainerComment ({ id }) {
   const { user, myComments, setMyComments } = useContext(Context)
   const [commentFindById, setCommentFindById] = useState({})
   const inputCommetRef = useRef(null)
-  const { handleKeyDown, handleChange, endOfTextarea } = useTextArea({
+  const { handleKeyDown, handleChange, handleSubmitMobile, endOfTextarea } = useTextArea({
     array: myComments,
     setArray: setMyComments,
     id
@@ -29,6 +30,11 @@ function ContainerComment ({ id }) {
       inputCommetRef.current.focus()
     }
   }, [commentFindById])
+
+  const isMobile = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  }
+
   return (
     <>
       <hr />
@@ -75,6 +81,18 @@ function ContainerComment ({ id }) {
               }
               style={{ bottom: '5px' }}
             >
+              {isMobile() && (
+                <div className='container-icon-comment'>
+                  <IoSendSharp
+                    size={15}
+                    onClick={e => {
+                      handleSubmitMobile(e)
+                      inputCommetRef.current.value = ''
+                      inputCommetRef.current.style.height = 'auto'
+                    }}
+                  />
+                </div>)
+              }
               <div className='container-icon-comment'>
                 <IconFace />
               </div>
